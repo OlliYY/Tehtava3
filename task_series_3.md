@@ -1,6 +1,6 @@
 # Tehtäväsarja 3 - Keskustelupalstan toteutus
 
-äytin tämän tehtävän tekemiseen supbasea.
+käytin tämän tehtävän tekemiseen supbasea.
 
 ## 1. Tietokantataulun luominen
 
