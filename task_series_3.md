@@ -9,7 +9,7 @@ Loin `posts`-taulun käyttäen SQL-Editoria seuraavilla kentillä:
 - `content`: Viestin sisältö.
 - `created_at`: Aikaleima, jolloin viesti luotiin.
 - `parent_post_id`: Viittaa toiseen viestiin (itsereferenssi).
-- `user_id`: Viittaa käyttäjään, joka loi viestin, voi olla `NULL`          anonyymiviesteille.
+- `user_id`: Viittaa käyttäjään, joka loi viestin, voi olla `NULL` anonyymiviesteille.
 - `title`: Viestin otsikko tai aihe.
 
 kuva taulun luonnista
@@ -60,7 +60,8 @@ kuva vastausviestien hakemisesta
 
 ## 4. Viestien poistaminen
 
-Testasin viestin poistamista ja tarkistin, että siihen liittyvät vastaukset poistettiin automaattisesti. Käytin poistamiseen ON DELETE CASCADE-ehtoa joka poistaa
+Testasin viestin poistamista ja tarkistin, että siihen liittyvät vastaukset poistettiin automaattisesti.
+ Käytin poistamiseen ON DELETE CASCADE-ehtoa joka poistaa
 kaikki vastaukset, kun aloitusviesti poistetaan
 
 - **Viestin poistaminen**:
@@ -73,7 +74,9 @@ kuva viestin poistamisesta
 
 ## 5. Tykkäystoiminnon lisääminen
 
-Loin `likes`-taulun, joka mahdollistaa tykkäyksien lisäämisen viesteihin.Käyttäjä voi tykätä viestistä vain kerran, mikä estetään tekemällä likes-taulun post_id ja user_id yhdistelmästä pääavain (PRIMARY KEY). Jos käyttäjä yrittää tykätä uudelleen, tietokanta estää sen. likes-taulu viittaa posts-tauluun ja auth.users-tauluun, mikä varmistaa tietokannan eheyden.
+Loin `likes`-taulun, joka mahdollistaa tykkäyksien lisäämisen viesteihin.Käyttäjä voi tykätä viestistä vain kerran, 
+mikä estetään tekemällä likes-taulun post_id ja user_id yhdistelmästä pääavain (PRIMARY KEY). Jos käyttäjä yrittää tykätä uudelleen,
+ tietokanta estää sen. likes-taulu viittaa posts-tauluun ja auth.users-tauluun, mikä varmistaa tietokannan eheyden.
 
 ```sql
 CREATE TABLE likes (
